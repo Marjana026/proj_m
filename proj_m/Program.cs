@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using proj_m.Data;
+//using proj_m.Data;
 using SyncSyntax.Data;
 
 var builder = WebApplication.CreateBuilder(args);
