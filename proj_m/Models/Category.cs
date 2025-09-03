@@ -1,15 +1,17 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using proj_m.Models;
+using System.ComponentModel.DataAnnotations;
 
-namespace proj_m.Models
+namespace SyncSyntax.Models
 {
     public class Category
     {
         [Key]
         public int Id { get; set; }
-        [Required(ErrorMessage ="The Category Name is Rqeuired")]
-        [MaxLength(100, ErrorMessage ="Category Name Cannot Exceed 200 characters")]
+        [Required(ErrorMessage = "The category name is required.")]
+        [MaxLength(100, ErrorMessage = "Category name cannot exceed 100 characters.")]
         public string Name { get; set; }
 
         public string? Description { get; set; }
+        public ICollection<Post>? Posts { get; set; }
     }
 }

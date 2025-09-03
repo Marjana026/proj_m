@@ -1,20 +1,25 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using proj_m.Models;
+using System.ComponentModel.DataAnnotations;
 
-namespace proj_m.Models
+namespace SyncSyntax.Models
 {
     public class Comment
     {
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "The UserName is Required")]
-        [MaxLength(400, ErrorMessage = "The UserName cannot exceed 100 characters")]
+        [Required(ErrorMessage = "User name is required.")]
+        [MaxLength(100, ErrorMessage = "User name cannot exceed 100 characters.")]
         public string UserName { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime CommentDate { get; set; }
-
+        [ValidateNever]
+        public DateTime CommentDate { get; set; } = DateTime.Now;
         [Required]
         public string Content { get; set; }
+        public int PostId { get; set; }
+        [ValidateNever]
+        public Post Post { get; set; }
     }
 }
