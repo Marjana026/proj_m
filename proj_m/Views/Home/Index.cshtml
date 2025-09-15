@@ -4,5 +4,116 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Find the best electricians, plumbers, maids nearby</p>
+</div>
+
+
+
+<!-- Hero Section -->
+<div class="bg-primary text-white text-center py-5">
+    <h1 class="display-3 fw-bold">Find Trusted Service Providers</h1>
+    <p class="lead">Hire electricians, plumbers, cleaners, and more — all in one place.</p>
+    <form class="d-flex justify-content-center mt-4" method="get" action="/Services/Search">
+        <input type="text" name="query" class="form-control w-50 me-2" placeholder="What service do you need?">
+        <button class="btn btn-light btn-lg" type="submit">Search</button>
+    </form>
+</div>
+
+<!-- Categories Section -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">Popular Categories</h2>
+    <div class="row text-center">
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <i class="bi bi-lightning-charge display-4 text-primary"></i>
+                    <h5 class="card-title mt-3">Electricians</h5>
+                    <p class="card-text">Fix wiring, lights, fans, and more.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <i class="bi bi-droplet display-4 text-primary"></i>
+                    <h5 class="card-title mt-3">Plumbers</h5>
+                    <p class="card-text">Repair leaks, pipes, and bathroom fittings.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <i class="bi bi-house display-4 text-primary"></i>
+                    <h5 class="card-title mt-3">Cleaners</h5>
+                    <p class="card-text">Professional cleaning for homes and offices.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <i class="bi bi-brush display-4 text-primary"></i>
+                    <h5 class="card-title mt-3">Painters</h5>
+                    <p class="card-text">Get walls, furniture, and homes painted.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- How It Works Section -->
+<div class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">How It Works</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <i class="bi bi-search display-4 text-primary"></i>
+                <h5 class="mt-3">1. Search</h5>
+                <p>Find service providers near you.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="bi bi-person-check display-4 text-primary"></i>
+                <h5 class="mt-3">2. Hire</h5>
+                <p>Choose the best professional for your job.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="bi bi-hand-thumbs-up display-4 text-primary"></i>
+                <h5 class="mt-3">3. Relax</h5>
+                <p>Sit back while the work gets done.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Testimonials Section -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">What Our Customers Say</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <blockquote class="blockquote p-3 border rounded shadow-sm">
+                "Booked an electrician in minutes. Great service!"
+                <footer class="blockquote-footer mt-2">Rahim, Dhaka</footer>
+            </blockquote>
+        </div>
+        <div class="col-md-4">
+            <blockquote class="blockquote p-3 border rounded shadow-sm">
+                "Affordable plumbers and very reliable."
+                <footer class="blockquote-footer mt-2">Sadia, Chattogram</footer>
+            </blockquote>
+        </div>
+        <div class="col-md-4">
+            <blockquote class="blockquote p-3 border rounded shadow-sm">
+                "The cleaner did an amazing job at my office."
+                <footer class="blockquote-footer mt-2">Kamal, Sylhet</footer>
+            </blockquote>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action -->
+<div class="bg-primary text-white text-center py-5">
+    <h2 class="fw-bold">Need Help Today?</h2>
+    <p class="lead">Find the right professional in just a few clicks.</p>
+    <a href="/Services/Search" class="btn btn-light btn-lg mt-2">Get Started</a>
 </div>
