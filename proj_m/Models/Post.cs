@@ -33,4 +33,21 @@ public class Post
     [ValidateNever]
     public ICollection<Comment> Comments { get; set; } = new List<Comment>();
 
+    // New features
+    public bool IsFeatured { get; set; } // Mark post as featured
+    public int ViewCount { get; set; } // Track number of views
+    public List<string>? Tags { get; set; } // Tags for post
+    public string? Summary { get; set; } // Short summary
+
+    // Expanded: helper method to increment views
+    public void IncrementViewCount()
+    {
+        ViewCount++;
+    }
+
+    // Expanded: get formatted published date
+    public string GetFormattedDate()
+    {
+        return PublishedDate.ToString("MMMM dd, yyyy");
+    }
 }
