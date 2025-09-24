@@ -38,3 +38,15 @@
     </div>
     <button type="submit">Save</button>
 </form>
+
+@functions {
+    private readonly ILogger<EditModel> _logger;
+    public EditModel(AppDbContext context, ILogger<EditModel> logger)
+    {
+        _context = context;
+        _logger = logger;
+    }
+
+    // Example usage in a method:
+    _logger.LogDebug("Post ID: {PostId}", Post.Id);
+}
