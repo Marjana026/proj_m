@@ -17,3 +17,18 @@
     </li>
 }
 </ul>
+
+<hr />
+<h3>Upload an Image</h3>
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="ImageFile" />
+    <button type="submit">Upload</button>
+</form>
+@if (!string.IsNullOrEmpty(Model.UploadMessage))
+{
+    <p>@Model.UploadMessage</p>
+    @if (!string.IsNullOrEmpty(Model.UploadedImagePath))
+    {
+        <img src="@Model.UploadedImagePath" alt="Uploaded Image" style="max-width:200px;" />
+    }
+}
