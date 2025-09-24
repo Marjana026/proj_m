@@ -6,4 +6,21 @@
 
 <h2>About</h2>
 <p>This is the About page for your Razor Pages project.</p>
-<p>Current time: @Model.CurrentTime</p>
+<p><strong>Current time:</strong> @Model.CurrentTime</p>
+
+<h3>Company</h3>
+<p><strong>Name:</strong> @Model.CompanyName</p>
+
+<h3>Mission</h3>
+<p>@Model.Mission</p>
+
+<h3>History</h3>
+<p>@Model.History</p>
+
+<h3>Team Members</h3>
+<ul>
+@foreach (var member in Model.TeamMembers)
+{
+    <li>@member</li>
+}
+</ul>
