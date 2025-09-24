@@ -1,0 +1,45 @@
+@page
+@model FeedbackModel
+@{
+    ViewData["Title"] = "Feedback";
+}
+
+<h2>Feedback</h2>
+<p>We value your feedback! Please leave your comments and rate our site.</p>
+
+<section>
+    <h3>Submit Feedback</h3>
+    <form method="post">
+        <label for="UserName">Name:</label>
+        <input type="text" id="UserName" name="UserName" /><br />
+        <label for="Comment">Comment:</label>
+        <textarea id="Comment" name="Comment"></textarea><br />
+        <label for="Rating">Rating:</label>
+        <select id="Rating" name="Rating">
+            @for (int i = 1; i <= 5; i++)
+            {
+                <option value="@i">@i</option>
+            }
+        </select><br />
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+<section>
+    <h3>Summary</h3>
+    <p><strong>Average Rating:</strong> @Model.AverageRating.ToString("0.0")</p>
+    <p><strong>Total Feedback:</strong> @Model.Feedbacks.Count</p>
+</section>
+
+<section>
+    <h3>Recent Feedback</h3>
+    <ul>
+    @foreach (var feedback in Model.Feedbacks.Take(5))
+    {
+        <li>
+            <strong>@feedback.UserName</strong> - Rating: @feedback.Rating<br />
+            <span>@feedback.Comment</span>
+        </li>
+    }
+    </ul>
+</section>

@@ -1,0 +1,19 @@
+@page
+@model CategoryFeatureModel
+@{
+    ViewData["Title"] = "Top Categories";
+}
+
+<h2>Top Categories by Post Count</h2>
+<ul>
+@foreach (var cat in Model.TopCategories)
+{
+    <li>
+        <strong>@cat.Name</strong> - @cat.PostCount posts
+        @if (!string.IsNullOrEmpty(cat.Description))
+        {
+            <span>- @cat.Description</span>
+        }
+    </li>
+}
+</ul>
