@@ -1,0 +1,29 @@
+@page
+@model ReviewModel
+@{
+    ViewData["Title"] = "Reviews";
+}
+
+<h2>Reviews</h2>
+<p>This page displays user reviews for our service.</p>
+
+<h3>Summary</h3>
+<p><strong>Total Reviews:</strong> @Model.TotalReviews</p>
+<p><strong>Average Rating:</strong> @Model.AverageRating.ToString("0.0")</p>
+
+<h3>Rating Breakdown</h3>
+<ul>
+@for (int i = 5; i >= 1; i--)
+{
+    <li>@i stars: @Model.RatingCounts[i] reviews</li>
+}
+</ul>
+
+<h3>All Reviews</h3>
+@foreach (var review in Model.Reviews)
+{
+    <div style="border:1px solid #ccc; margin-bottom:10px; padding:10px;">
+        <strong>@review.ReviewerName</strong> - <span>Rating: @review.Rating</span>
+        <p>@review.Comment</p>
+    </div>
+}
