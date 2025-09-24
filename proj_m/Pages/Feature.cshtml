@@ -1,0 +1,32 @@
+@page
+@model FeatureModel
+@{
+    ViewData["Title"] = "Features";
+}
+
+<h2>Features</h2>
+<p>This page lists the main features of the application.</p>
+<ul>
+@foreach (var feature in Model.Features)
+{
+    <li>
+        <strong>@feature.Name</strong>: @feature.Description
+    </li>
+}
+</ul>
+
+<h2>Template Posts</h2>
+<ul>
+@foreach (var post in Model.TemplatePosts)
+{
+    <li>
+        <strong>@post.Title</strong> by @post.Author<br />
+        <em>Published:</em> @post.GetFormattedDate()<br />
+        <em>Summary:</em> @post.Summary<br />
+        <em>Views:</em> @post.ViewCount<br />
+        <em>Featured:</em> @(post.IsFeatured ? "Yes" : "No")<br />
+        <em>Tags:</em> @string.Join(", ", post.Tags ?? new List<string>())
+        <p>@post.Content</p>
+    </li>
+}
+</ul>

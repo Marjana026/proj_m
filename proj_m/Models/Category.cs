@@ -12,6 +12,7 @@ namespace SyncSyntax.Models
         public string Name { get; set; }
 
         public string? Description { get; set; }
+        // Removed Location property to undo migration requirement
         public ICollection<Post>? Posts { get; set; }
     }
 }

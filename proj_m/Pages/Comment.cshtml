@@ -1,0 +1,37 @@
+@page
+@model CommentModel
+@{
+    ViewData["Title"] = "Comments";
+}
+
+<h2>Comments</h2>
+<ul>
+@foreach (var comment in Model.Comments)
+{
+    <li style="margin-bottom:20px; border-bottom:1px solid #ccc; padding-bottom:10px;">
+        <strong>@comment.UserName</strong> (@comment.CommentDate.ToShortDateString())<br />
+        <span>@comment.GetSummary()</span><br />
+        <span>Likes: @comment.Likes | Dislikes: @comment.Dislikes</span><br />
+        @if (comment.IsPinned)
+        {
+            <span style="color:gold; font-weight:bold;">[Pinned]</span>
+        }
+        @if (comment.IsEdited)
+        {
+            <span style="color:gray;">(Edited @comment.EditedDate?.ToShortDateString())</span>
+        }
+        @if (!string.IsNullOrEmpty(comment.ReplyToUser))
+        {
+            <span>Replying to: @comment.ReplyToUser</span><br />
+        }
+        @if (comment.IsFlagged)
+        {
+            <span style="color:red;">[Flagged for moderation]</span>
+        }
+        @if (!string.IsNullOrEmpty(comment.ModeratorNote))
+        {
+            <div style="background:#f8d7da; color:#721c24; padding:5px;">Moderator Note: @comment.ModeratorNote</div>
+        }
+    </li>
+}
+</ul>
