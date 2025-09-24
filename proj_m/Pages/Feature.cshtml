@@ -1,0 +1,16 @@
+@page
+@model FeatureModel
+@{
+    ViewData["Title"] = "Features";
+}
+
+<h2>Features</h2>
+<p>This page lists the main features of the application.</p>
+<ul>
+@foreach (var feature in Model.Features)
+{
+    <li>
+        <strong>@feature.Name</strong>: @feature.Description
+    </li>
+}
+</ul>

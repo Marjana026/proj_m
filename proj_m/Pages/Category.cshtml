@@ -5,17 +5,6 @@
 }
 
 <h2>Categories</h2>
-<form method="get">
-    <label for="locationFilter">Filter by Location:</label>
-    <select id="locationFilter" name="location">
-        <option value="">All Locations</option>
-        @foreach (var loc in Model.AllLocations)
-        {
-            <option value="@loc" @(loc == Model.SelectedLocation ? "selected" : "")>@loc</option>
-        }
-    </select>
-    <button type="submit">Filter</button>
-</form>
 <ul>
 @foreach (var category in Model.Categories)
 {
@@ -24,10 +13,6 @@
         @if (!string.IsNullOrEmpty(category.Description))
         {
             <span>- @category.Description</span>
-        }
-        @if (!string.IsNullOrEmpty(category.Location))
-        {
-            <span> (Location: @category.Location)</span>
         }
     </li>
 }
