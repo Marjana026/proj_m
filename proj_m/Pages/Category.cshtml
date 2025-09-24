@@ -1,0 +1,19 @@
+@page
+@model CategoryModel
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<h2>Categories</h2>
+<ul>
+@foreach (var category in Model.Categories)
+{
+    <li>
+        <strong>@category.Name</strong>
+        @if (!string.IsNullOrEmpty(category.Description))
+        {
+            <span>- @category.Description</span>
+        }
+    </li>
+}
+</ul>
