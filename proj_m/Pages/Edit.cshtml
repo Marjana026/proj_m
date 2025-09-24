@@ -1,0 +1,40 @@
+@page "{id:int}"
+@model EditModel
+@{
+    ViewData["Title"] = "Edit Post";
+}
+
+<h2>Edit Post</h2>
+@if (Model.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+<form method="post">
+    <input type="hidden" asp-for="Post.Id" />
+    <div>
+        <label asp-for="Post.Title"></label>
+        <input asp-for="Post.Title" />
+        <span asp-validation-for="Post.Title"></span>
+    </div>
+    <div>
+        <label asp-for="Post.Content"></label>
+        <textarea asp-for="Post.Content"></textarea>
+        <span asp-validation-for="Post.Content"></span>
+    </div>
+    <div>
+        <label asp-for="Post.Author"></label>
+        <input asp-for="Post.Author" />
+        <span asp-validation-for="Post.Author"></span>
+    </div>
+    <div>
+        <label asp-for="Post.CategoryId">Category</label>
+        <select asp-for="Post.CategoryId" asp-items="Model.Categories"></select>
+        <span asp-validation-for="Post.CategoryId"></span>
+    </div>
+    <div>
+        <label asp-for="Post.PublishedDate"></label>
+        <input asp-for="Post.PublishedDate" type="date" />
+        <span asp-validation-for="Post.PublishedDate"></span>
+    </div>
+    <button type="submit">Save</button>
+</form>
