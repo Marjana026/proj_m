@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc;
 using SyncSyntax.Models;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,14 @@ public class IndexModel : PageModel
     public List<Post> LatestPosts { get; private set; }
     public List<dynamic> RecentReviews { get; private set; }
     public List<SyncSyntax.Models.Comment> TopComments { get; private set; }
+
+    [BindProperty]
+    public string UserName { get; set; }
+    [BindProperty]
+    public string Content { get; set; }
+    public List<SyncSyntax.Models.Comment> Comments { get; set; } = new List<SyncSyntax.Models.Comment>();
+
+    private static List<SyncSyntax.Models.Comment> _commentsStore = new List<SyncSyntax.Models.Comment>();
 
     public void OnGet()
     {
@@ -42,5 +51,24 @@ public class IndexModel : PageModel
             new SyncSyntax.Models.Comment { UserName = "Bob", Content = "Thanks for the info.", CommentDate = DateTime.Now.AddDays(-2), IsPinned = false },
             new SyncSyntax.Models.Comment { UserName = "Charlie", Content = "Looking forward to more updates.", CommentDate = DateTime.Now.AddDays(-3), IsPinned = false }
         };
+
+        Comments = _commentsStore;
+    }
+
+    public IActionResult OnPost()
+    {
+        if (!string.IsNullOrWhiteSpace(UserName) && !string.IsNullOrWhiteSpace(Content))
+        {
+            _commentsStore.Add(new SyncSyntax.Models.Comment
+            {
+                UserName = UserName,
+                Content = Content,
+                CommentDate = DateTime.Now
+            });
+        }
+        Comments = _commentsStore;
+        // Repopulate other properties for page rendering
+        OnGet();
+        return Page();
     }
 }
