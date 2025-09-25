@@ -5,18 +5,19 @@
 }
 
 <!-- Hero Section -->
-<div class="bg-primary text-white py-5 mb-4 rounded-4 shadow-lg">
-    <div class="container text-center">
+<div class="position-relative overflow-hidden bg-gradient-primary-to-secondary text-white py-5 mb-4 rounded-4 shadow-lg">
+    <div class="container text-center position-relative z-2">
         <h1 class="display-3 fw-bold mb-3">Find Trusted Professionals Near You</h1>
         <p class="lead mb-4">Electricians, plumbers, maids, and more. Fast, reliable, and local.</p>
-        <a href="#featured" class="btn btn-light btn-lg px-5 py-2 fw-bold">Get Started</a>
+        <a href="#featured" class="btn btn-light btn-lg px-5 py-2 fw-bold shadow">Get Started</a>
     </div>
+    <div class="position-absolute top-0 start-0 w-100 h-100 z-1" style="background: radial-gradient(circle at 20% 40%, #0d6efd33 0%, transparent 70%), radial-gradient(circle at 80% 60%, #6f42c133 0%, transparent 70%);"></div>
 </div>
 
 <!-- Featured Professionals Section -->
 <div id="featured" class="container mb-5">
-    <h2 class="text-center mb-4 text-info">Featured Professionals</h2>
+    <h2 class="text-center mb-4 text-info fw-bold">Featured Professionals</h2>
     <div class="row justify-content-center">
         <div class="col-md-4 mb-3">
-            <div class="card shadow-sm border-0">
-                <img src="https://randomuser.me/api/portraits/
+            <div class="card shadow-lg border-0 h-100 hover-shadow transition">
+                <img src="https://randomuser.me/api/portraits
