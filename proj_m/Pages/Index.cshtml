@@ -1,0 +1,97 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<!-- Hero Section -->
+<div class="bg-primary text-white py-5 mb-4 rounded-4 shadow-lg">
+    <div class="container text-center">
+        <h1 class="display-3 fw-bold mb-3">Find Trusted Professionals Near You</h1>
+        <p class="lead mb-4">Electricians, plumbers, maids, and more. Fast, reliable, and local.</p>
+        <a href="#featured" class="btn btn-light btn-lg px-5 py-2 fw-bold">Get Started</a>
+    </div>
+</div>
+
+<!-- Featured Professionals Section -->
+<div id="featured" class="container mb-5">
+    <h2 class="text-center mb-4 text-info">Featured Professionals</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm border-0">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="card-img-top" alt="John Doe">
+                <div class="card-body">
+                    <h5 class="card-title">John Doe</h5>
+                    <p class="card-text">Electrician</p>
+                    <span class="badge bg-success">4.8 ?</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm border-0">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="card-img-top" alt="Jane Smith">
+                <div class="card-body">
+                    <h5 class="card-title">Jane Smith</h5>
+                    <p class="card-text">Plumber</p>
+                    <span class="badge bg-success">4.7 ?</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm border-0">
+                <img src="https://randomuser.me/api/portraits/women/65.jpg" class="card-img-top" alt="Sara Lee">
+                <div class="card-body">
+                    <h5 class="card-title">Sara Lee</h5>
+                    <p class="card-text">Maid</p>
+                    <span class="badge bg-success">4.9 ?</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Comment Section -->
+<div class="container mb-5">
+    <h2 class="text-center mb-4 text-warning">Leave a Comment</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body">
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="UserName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="UserName" name="UserName" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="Content" class="form-label">Comment</label>
+                            <textarea class="form-control" id="Content" name="Content" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-warning">Post Comment</button>
+                    </form>
+                </div>
+            </div>
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="mb-3">Recent Comments</h5>
+                    <ul class="list-group list-group-flush">
+                        @if (Model.Comments != null && Model.Comments.Count > 0)
+                        {
+                            @foreach (var comment in Model.Comments.OrderByDescending(c => c.CommentDate))
+                            {
+                                <li class="list-group-item">
+                                    <span class="fw-bold">@comment.UserName</span>
+                                    <span class="text-muted small">(@comment.CommentDate.ToShortDateString())</span>
+                                    <div>@comment.Content</div>
+                                </li>
+                            }
+                        }
+                        else
+                        {
+                            <li class="list-group-item text-muted">No comments yet.</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
