@@ -9,54 +9,10 @@
     <p class="lead">Find the best electricians, plumbers, maids nearby</p>
 </div>
 
-<div class="row justify-content-center mb-5">
-    <div class="col-md-8">
-        <div class="card shadow-lg rounded-4 border-0">
-            <div class="card-body p-4">
-                <form method="get">
-                    <div class="input-group">
-                        <span class="input-group-text bg-white border-end-0"><i class="bi bi-search"></i></span>
-                        <input type="text" name="searchTerm" class="form-control border-start-0" placeholder="Search posts..." value="@Request.Query["searchTerm"]" />
-                        <button class="btn btn-primary px-4" type="submit"><i class="bi bi-arrow-right-circle"></i> Search</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-@if (Model.LatestPosts != null && Model.LatestPosts.Count > 0)
-{
+<!-- Featured Professionals Section -->
+<div class="container mb-5">
+    <h2 class="text-center mb-4 text-info">Featured Professionals</h2>
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card shadow-sm rounded-4 border-0 mb-4">
-                <div class="card-body">
-                    <h2 class="h4 mb-3 text-success">Search Results</h2>
-                    <ul class="list-group list-group-flush">
-                        @foreach (var post in Model.LatestPosts)
-                        {
-                            <li class="list-group-item d-flex flex-column align-items-start">
-                                <span class="fw-bold text-primary">@post.Title</span>
-                                <span class="small text-muted">by @post.Author &middot; @post.PublishedDate.ToShortDateString()</span>
-                                <span class="mt-1">@post.Summary</span>
-                            </li>
-                        }
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-}
-else
-{
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="alert alert-warning shadow-sm rounded-4 border-0 text-center">No posts found.</div>
-        </div>
-    </div>
-}
-
-<div class="jumbotron mt-5">
-    <h1>Welcome to SyncSyntax Contacts!</h1>
-    <p class="lead">Your</p>
-</div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm border-0">
+                <img src="https://randomuser.me/api/portraits
