@@ -1,0 +1,76 @@
+@page
+@model AdminDashboardModel
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<h1 class="mb-4 text-primary">Admin Dashboard</h1>
+<div class="row mb-5">
+    <div class="col-md-3">
+        <div class="card shadow-sm border-0 text-center">
+            <div class="card-body">
+                <h5 class="card-title">Total Users</h5>
+                <p class="display-6 fw-bold text-info">@Model.TotalUsers</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm border-0 text-center">
+            <div class="card-body">
+                <h5 class="card-title">Total Posts</h5>
+                <p class="display-6 fw-bold text-success">@Model.TotalPosts</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm border-0 text-center">
+            <div class="card-body">
+                <h5 class="card-title">Total Categories</h5>
+                <p class="display-6 fw-bold text-warning">@Model.TotalCategories</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm border-0 text-center">
+            <div class="card-body">
+                <h5 class="card-title">Total Reviews</h5>
+                <p class="display-6 fw-bold text-danger">@Model.TotalReviews</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">User Management</h5>
+                <a class="btn btn-outline-primary" href="/Admin/Users">Manage Users</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Post Management</h5>
+                <a class="btn btn-outline-success" href="/Admin/Posts">Manage Posts</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Category Management</h5>
+                <a class="btn btn-outline-warning" href="/Admin/Categories">Manage Categories</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Review Moderation</h5>
+                <a class="btn btn-outline-danger" href="/Admin/Reviews">Moderate Reviews</a>
+            </div>
+        </div>
+    </div>
+</div>
