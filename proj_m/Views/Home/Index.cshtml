@@ -9,6 +9,32 @@
     <p>Find the best electricians, plumbers, maids nearby</p>
 </div>
 
+<form method="get">
+    <div class="input-group mb-3">
+        <input type="text" name="searchTerm" class="form-control" placeholder="Search posts..." value="@Request.Query["searchTerm"]" />
+        <button class="btn btn-primary" type="submit">Search</button>
+    </div>
+</form>
+
+@if (Model.LatestPosts != null && Model.LatestPosts.Count > 0)
+{
+    <h2>Search Results</h2>
+    <ul>
+    @foreach (var post in Model.LatestPosts)
+    {
+        <li>
+            <strong>@post.Title</strong> by @post.Author<br />
+            <em>Published:</em> @post.PublishedDate.ToShortDateString()<br />
+            <em>Summary:</em> @post.Summary
+        </li>
+    }
+    </ul>
+}
+else
+{
+    <p>No posts found.</p>
+}
+
 <div class="jumbotron">
     <h1>Welcome to SyncSyntax Contacts!</h1>
     <p class="lead">Your
